@@ -4,9 +4,10 @@
 
   app = angular.module('app', ['ngGrid']);
 
-  app.controller('MyCtrl', function($scope, $timeout) {
+  app.controller('MyCtrl', function($scope, $timeout, $http) {
     var pushIt;
 
+    $scope.mySelections = [];
     $scope.myData = [];
     pushIt = function() {
       $scope.myData.push({
@@ -15,18 +16,17 @@
         "platform": "OSX.4+",
         "version": 522.1,
         "grade": "A",
-        "date": new Date()
+        "date": (new Date()).toLocaleString()
       });
       return $timeout(pushIt, 500);
     };
-    pushIt();
     $scope.filterOptions = {
       filterText: '',
       useExternalFilter: true
     };
     $scope.totalServerItems = 0;
     $scope.pagingOptions = {
-      pageSizes: [5, 10, 15],
+      pageSizes: [5, 20, 100, 500, 2500],
       pageSize: 5,
       currentPage: 1
     };
@@ -35,35 +35,34 @@
 
       pagedData = data.slice((page - 1) * pageSize, page * pageSize);
       $scope.myData = pagedData;
-      $scope.totalServerItems = data.length;
-      if (!$scope.$$phase) {
-        return $scope.$apply();
-      }
+      return $scope.totalServerItems = data.length;
     };
     $scope.getPagedDataAsync = function(pageSize, page, searchText) {
-      setTimeout(function() {
-        data;
-        var ft;
+      var ft;
 
-        if (searchText) {
-          ft = searchText.toLowerCase();
-          return $http.get('largeLoad.json').success(function(largeLoad) {
-            var data;
+      if (searchText) {
+        ft = searchText.toLowerCase();
+        return $http.get('/largeLoad.json').success(function(largeLoad) {
+          var data;
 
-            data = largeLoad.filter(function(item) {
-              return JSON.stringify(item).toLowerCase().indexOf(ft) !== -1;
-            });
-            return $scope.setPagingData(data, page, pageSize);
+          data = largeLoad.filter(function(item) {
+            return JSON.stringify(item).toLowerCase().indexOf(ft) !== -1;
           });
-        }
-      }, 100);
-      $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
-      return $scope.$watch('pagingOptions', function(newVal, oldVal) {
-        if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
-          return $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
-        }
-      }, true);
+          return $scope.setPagingData(data, page, pageSize);
+        });
+      } else {
+        return $http.get('/largeLoad.json').success(function(largeLoad) {
+          return $scope.setPagingData(largeLoad, page, pageSize);
+        });
+      }
     };
+    $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
+    $scope.$watch('pagingOptions', function(newVal, oldVal) {
+      return $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
+    }, true);
+    $scope.$watch('filterOptions', function(newVal, oldVal) {
+      return $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
+    }, true);
     return $scope.gridOptions = {
       data: 'myData',
       columnDefs: [
@@ -83,16 +82,17 @@
         }, {
           field: 'grade',
           displayName: 'Grade'
-        }, {
-          field: 'date',
-          displayName: 'Date'
         }
       ],
       showGroupPanel: true,
       enableCellSelection: true,
       enablePinning: true,
       enablePaging: true,
-      showFooter: true
+      showFooter: true,
+      selectedItems: $scope.mySelections,
+      totalServerItems: 'totalServerItems',
+      pagingOptions: $scope.pagingOptions,
+      filterOptions: $scope.filterOptions
     };
   });
 
