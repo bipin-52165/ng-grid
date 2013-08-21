@@ -66,19 +66,19 @@ app.controller 'MyCtrl', ($scope, $timeout, $http) ->
             ,
                 field: 'version'
                 displayName: 'Version'
-                cellTemplate: 'cellTemplate.html'
+                # cellTemplate: 'cellTemplate.html'
             ,
                 field: 'grade'
                 displayName: 'Grade'
         ]
         # showGroupPanel: true
-        enableCellSelection: true
+        # enableCellSelection: true
         # enableCellEditOnFocus: true
         # enablePinning: true
         enablePaging: true
         # enableRowSelection: false
         showFooter: true
-        selectedItems: $scope.mySelections
+        # selectedItems: $scope.mySelections
         totalServerItems: 'totalServerItems'
         pagingOptions: $scope.pagingOptions
         filterOptions: $scope.filterOptions

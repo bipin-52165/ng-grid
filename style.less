@@ -13,17 +13,31 @@ body {
 .gridStyle {
     border: 1px solid #cbcbcc;
     height: 400px;
-  .ngHeaderContainer {
-    background-color: transparent;
-    .linear-gradient(#f5f5f7, #dfdfe1);
-    .ngSortButtonUp, .ngSortButtonDown {
-      margin: 0;
-      left: auto;
-      right: 3%;
+
+  .ngTopPanel {
+    .ngHeaderContainer {
+      background-color: transparent;
+      border-bottom: 1px solid #d5d6d8;
+      .linear-gradient(#f5f5f7, #dfdfe1);
+      .ngSortButtonUp, .ngSortButtonDown {
+        margin: 0;
+        left: auto;
+        right: 3%;
+      }
+    }
+  }
+
+  .ngViewport {
+    .ngCanvas {
+      .ngRow.even {
+        background-color: #fafafc;
+      }
+      .ngRow.odd {
+        background-color: #f4f4f6;
+      }
     }
   }
 }
-
 
 .green {
     background-color: green;

@@ -77,17 +77,14 @@
           displayName: 'Platform'
         }, {
           field: 'version',
-          displayName: 'Version',
-          cellTemplate: 'cellTemplate.html'
+          displayName: 'Version'
         }, {
           field: 'grade',
           displayName: 'Grade'
         }
       ],
-      enableCellSelection: true,
       enablePaging: true,
       showFooter: true,
-      selectedItems: $scope.mySelections,
       totalServerItems: 'totalServerItems',
       pagingOptions: $scope.pagingOptions,
       filterOptions: $scope.filterOptions
