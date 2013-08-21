@@ -71,10 +71,10 @@ app.controller 'MyCtrl', ($scope, $timeout, $http) ->
                 field: 'grade'
                 displayName: 'Grade'
         ]
-        showGroupPanel: true
+        # showGroupPanel: true
         enableCellSelection: true
         # enableCellEditOnFocus: true
-        enablePinning: true
+        # enablePinning: true
         enablePaging: true
         # enableRowSelection: false
         showFooter: true

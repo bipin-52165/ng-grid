@@ -84,9 +84,7 @@
           displayName: 'Grade'
         }
       ],
-      showGroupPanel: true,
       enableCellSelection: true,
-      enablePinning: true,
       enablePaging: true,
       showFooter: true,
       selectedItems: $scope.mySelections,

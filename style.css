@@ -1,13 +1,25 @@
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
-
 .gridStyle {
-    border: 1px solid rgb(212, 212, 212);
-    height: 400px;
+  border: 1px solid #cbcbcc;
+  height: 400px;
 }
-
+.gridStyle .ngHeaderContainer {
+  background-color: transparent;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #f5f5f7), color-stop(100%, #dfdfe1));
+  background-image: -webkit-linear-gradient(top, #f5f5f7, #dfdfe1);
+  background-image: -moz-linear-gradient(top, #f5f5f7, #dfdfe1);
+  background-image: -o-linear-gradient(top, #f5f5f7, #dfdfe1);
+  background-image: linear-gradient(top, #f5f5f7, #dfdfe1);
+}
+.gridStyle .ngHeaderContainer .ngSortButtonUp,
+.gridStyle .ngHeaderContainer .ngSortButtonDown {
+  margin: 0;
+  left: auto;
+  right: 3%;
+}
 .green {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
 }
