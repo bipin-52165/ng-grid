@@ -18,8 +18,9 @@
         "grade": "A",
         "date": (new Date()).toLocaleString()
       });
-      return $timeout(pushIt, 500);
+      return $timeout(pushIt, 50);
     };
+    pushIt();
     $scope.filterOptions = {
       filterText: '',
       useExternalFilter: true
@@ -81,6 +82,9 @@
         }, {
           field: 'grade',
           displayName: 'Grade'
+        }, {
+          field: 'date',
+          displayName: 'Date'
         }
       ],
       enablePaging: true,

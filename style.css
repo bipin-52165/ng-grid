@@ -6,9 +6,11 @@ body {
   font-size: small;
   height: 400px;
 }
+.gridStyle .ngTopPanel {
+  border-bottom: 1px solid #d5d6d8;
+}
 .gridStyle .ngTopPanel .ngHeaderContainer {
   background-color: transparent;
-  border-bottom: 1px solid #d5d6d8;
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #f5f5f7), color-stop(100%, #dfdfe1));
   background-image: -webkit-linear-gradient(top, #f5f5f7, #dfdfe1);
   background-image: -moz-linear-gradient(top, #f5f5f7, #dfdfe1);
@@ -24,6 +26,17 @@ body {
 }
 .gridStyle .ngViewport {
   color: #797979;
+}
+.gridStyle .ngViewport .ngCanvas .ngRow .ngCell {
+  border-bottom-style: solid;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  border-bottom-color: #e8e7ec;
+  border-right-color: #e8e7ec;
+}
+.gridStyle .ngViewport .ngCanvas .ngRow .ngCell .ngVerticalBar {
+  display: none;
 }
 .gridStyle .ngViewport .ngCanvas .ngRow.even {
   background-color: #fafafc;

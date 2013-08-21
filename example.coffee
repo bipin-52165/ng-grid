@@ -7,8 +7,8 @@ app.controller 'MyCtrl', ($scope, $timeout, $http) ->
 
     pushIt = ->
         $scope.myData.push {"engine":"Webkit","browser":"Safari 3.0","platform":"OSX.4+","version":522.1,"grade":"A", "date":(new Date()).toLocaleString()}
-        $timeout pushIt, 500
-    # pushIt()
+        $timeout pushIt, 50
+    pushIt()
 
     $scope.filterOptions =
         filterText: ''
@@ -70,6 +70,9 @@ app.controller 'MyCtrl', ($scope, $timeout, $http) ->
             ,
                 field: 'grade'
                 displayName: 'Grade'
+            ,
+                field: 'date'
+                displayName: 'Date'
         ]
         # showGroupPanel: true
         # enableCellSelection: true
