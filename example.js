@@ -26,8 +26,8 @@
     };
     $scope.totalServerItems = 0;
     $scope.pagingOptions = {
-      pageSizes: [5, 20, 100, 500, 2500],
-      pageSize: 5,
+      pageSizes: [20, 100, 500, 2500],
+      pageSize: 20,
       currentPage: 1
     };
     $scope.setPagingData = function(data, page, pageSize) {
