@@ -3,6 +3,7 @@ body {
 }
 .gridStyle {
   border: 1px solid #cbcbcc;
+  font-size: small;
   height: 400px;
 }
 .gridStyle .ngTopPanel .ngHeaderContainer {
@@ -19,6 +20,9 @@ body {
   margin: 0;
   left: auto;
   right: 3%;
+}
+.gridStyle .ngViewport {
+  color: #797979;
 }
 .gridStyle .ngViewport .ngCanvas .ngRow.even {
   background-color: #fafafc;
