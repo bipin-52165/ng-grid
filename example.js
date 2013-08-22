@@ -16,9 +16,9 @@
         "platform": "OSX.4+",
         "version": 522.1,
         "grade": "A",
-        "date": (new Date()).toLocaleString()
+        "date": new Date()
       });
-      return $timeout(pushIt, 50);
+      return $timeout(pushIt, 200);
     };
     pushIt();
     $scope.filterOptions = {

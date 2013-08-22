@@ -27,22 +27,8 @@ body {
 .gridStyle .ngViewport {
   color: #797979;
 }
-.gridStyle .ngViewport .ngCanvas .ngRow .ngCell {
-  border-bottom-style: solid;
-  border-right-style: solid;
-  border-bottom-width: 1px;
-  border-right-width: 1px;
-  border-bottom-color: #e8e7ec;
-  border-right-color: #e8e7ec;
-}
 .gridStyle .ngViewport .ngCanvas .ngRow .ngCell .ngVerticalBar {
   display: none;
-}
-.gridStyle .ngViewport .ngCanvas .ngRow.even {
-  background-color: #fafafc;
-}
-.gridStyle .ngViewport .ngCanvas .ngRow.odd {
-  background-color: #f4f4f6;
 }
 .green {
   background-color: green;

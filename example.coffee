@@ -6,8 +6,9 @@ app.controller 'MyCtrl', ($scope, $timeout, $http) ->
     $scope.myData = []
 
     pushIt = ->
-        $scope.myData.push {"engine":"Webkit","browser":"Safari 3.0","platform":"OSX.4+","version":522.1,"grade":"A", "date":(new Date()).toLocaleString()}
-        $timeout pushIt, 50
+        $scope.myData.push {"engine":"Webkit","browser":"Safari 3.0","platform":"OSX.4+","version":522.1,"grade":"A", "date": new Date()}
+        # $scope.myData.shift()
+        $timeout pushIt, 200
     pushIt()
 
     $scope.filterOptions =
