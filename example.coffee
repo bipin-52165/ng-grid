@@ -8,6 +8,8 @@ app.controller 'MyCtrl', ($scope, $timeout, $http) ->
     pushIt = ->
         $scope.myData.push {"engine":"Webkit","browser":"Safari 3.0","platform":"OSX.4+","version":522.1,"grade":"A", "date": new Date()}
         # $scope.myData.shift()
+        console.log '$scope.myData.length', $scope.myData.length
+        $scope.totalServerItems += 1
         $timeout pushIt, 200
     pushIt()
 

@@ -18,6 +18,8 @@
         "grade": "A",
         "date": new Date()
       });
+      console.log('$scope.myData.length', $scope.myData.length);
+      $scope.totalServerItems += 1;
       return $timeout(pushIt, 200);
     };
     pushIt();
